@@ -1,3 +1,6 @@
+
+#https://github.com/kiran-113/final_jenkins__docker_repo.git
+
 pipeline {
     agent any
     tools{
@@ -6,7 +9,7 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Java-Techie-jt/devops-automation']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kiran-113/final_jenkins__docker_repo']]])
                 sh 'mvn clean install'
             }
         }
