@@ -4,13 +4,13 @@ pipeline {
         maven 'maven_3_5_0'
     }
     stages{
-        stage('Environment') {
-            steps {
-                env {
-                    BUILD_NUMBER = new Random().nextInt(100000)
-                }
-            }
-        }
+        // stage('Environment') {
+        //     steps {
+        //         env {
+        //             BUILD_NUMBER = new Random().nextInt(100000)
+        //         }
+        //     }
+        // }
         stage('Build Maven'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kiran-113/final_jenkins__docker_repo']]])
@@ -20,7 +20,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t kiran11113/devops-integration:$BUILD_NUMBER .'
+                    sh 'docker build -t kiran11113/devops-integration .'
                 }
             }
         }
