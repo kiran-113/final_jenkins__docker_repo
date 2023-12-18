@@ -22,10 +22,10 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u kiran11113 -p ${dockerhubpwd}'
 
-}
-                   sh 'docker push kiran11113/devops-integration:$BUILD_NUMBER'
+                   sh 'docker login -u kiran11113 -p ${dockerhubpwd}'
+                }
+                   sh 'docker push kiran11113/devops-integration'
                 }
             }
         }
