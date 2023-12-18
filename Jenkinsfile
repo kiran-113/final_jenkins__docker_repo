@@ -32,6 +32,7 @@ pipeline {
         stage('Deploy to k8s'){
             steps{
                 sh 'sudo -u devops  kubectl apply -f deploymentservice.yaml'
+                sh 'sudo -u devops  kubectl get pods'
                // sh 'kubectl apply -f deploymentservice.yaml'
             }
         }
