@@ -31,8 +31,8 @@ pipeline {
         }
         stage('Deploy to k8s'){
             steps{
-                //sh 'sudo -u devops minikube deploy kubectl apply -f deploymentservice.yaml'
-                sh 'kubectl apply -f deploymentservice.yaml'
+                sh 'sudo -u devops -p zxcvbnm minikube deploy kubectl apply -f deploymentservice.yaml'
+               // sh 'kubectl apply -f deploymentservice.yaml'
             }
         }
     }
