@@ -7,7 +7,7 @@ pipeline {
         stage('Environment') {
             steps {
                 env {
-                BUILD_NUMBER = new Random().nextInt(100000)
+                    BUILD_NUMBER = new Random().nextInt(100000)
                 }
             }
         }
