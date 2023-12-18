@@ -31,8 +31,14 @@ pipeline {
         }
         stage('Deploy to k8s'){
             steps{
-                sh 'sudo -u devops -p zxcvbnm minikube deploy kubectl apply -f deploymentservice.yaml'
-               // sh 'kubectl apply -f deploymentservice.yaml'
+                script{
+                   withCredentials([string(credentialsId: 'minikube', variable: 'minikubepwd')]) {
+
+                   sh 'sudo -u devops -p ${minikubepwd} kubectl apply -f deploymentservice.yaml'
+                }
+                   sh 'kubectl get pods'
+                }
+              
             }
         }
     }
