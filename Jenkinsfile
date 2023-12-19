@@ -14,6 +14,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
+                    sh 'docker image prune -a --force --filter "label=kiran11113/devops-integration"'
                     sh 'docker build -t kiran11113/devops-integration .'
                 }
             }
