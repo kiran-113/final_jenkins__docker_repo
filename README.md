@@ -9,3 +9,4 @@ toget kubeconfig file location : [[! -z "$KUBECONFIG"]] && echo "$KUBECONFIG" ||
 minikube service springboot-k8ssvc --url ( Replace springboot-k8ssvc with service by running kubectl get svc )
 
 ---
+kubectl port-forward service/springboot-k8ssvc 30925:9090
